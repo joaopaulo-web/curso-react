@@ -75,7 +75,7 @@ function App() {
         <hr/>
         <h4>Children</h4>
         <Container>
-            <p>E este é o conteúdo</p>
+            <p>E este é o conteúdo filho do container</p>
         </Container>
         <hr/>
         <h4>Executar função</h4>

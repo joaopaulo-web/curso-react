@@ -20,7 +20,7 @@ export function Events(){
                 <p>O botão esta sendo importado no App.tsx</p>
             </div>
             <div>
-                <button onClick={() => alert("Clicou no segundo botão!")}>Ou Clique Aqui</button>
+                <button onClick={() => alert("Clicou no segundo botão! Evento inline")}>Ou Clique Aqui</button>
             </div>
             {renderAlgo(true)}
             {renderAlgo(false)}
