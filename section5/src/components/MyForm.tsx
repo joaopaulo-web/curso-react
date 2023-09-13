@@ -1,10 +1,16 @@
 import "./MyForm.css"
 import {useState} from "react";
-const MyForm = () => {
-    // 3- Gerenciamento de dados
+// @ts-ignore
+const MyForm = ({user}) => {
+    //6 - Controlled Inputs
 
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
+    // 3- Gerenciamento de dados
+    const [name, setName] = useState(user ? user.name : '')
+    const [email, setEmail] = useState(user ? user.email : '')
+
+    const [bio, setBio] = useState(user ? user.bio : '')
+
+    const [role, setRole] = useState(user ? user.role : '')
 
     // @ts-ignore
     const handleName = (e) => {
@@ -15,16 +21,31 @@ const MyForm = () => {
         setEmail(e.target.value)
     }
 
-    console.log(name)
-    console.log(email)
+    // @ts-ignore
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        alert("Formulário Enviado")
+        console.log(name, email, bio, role)
 
+        // limpando formulário
+
+        setName("")
+        setEmail("")
+        setBio("")
+        setRole("")
+    }
     return (
         <div>
             <h3>Criação do 1º Form</h3>
-            <form>
+            {/*Envio do Form*/}
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Nome: </label>
-                    <input type="text" name="name" placeholder="Digite o seu nome" onChange={handleName}/>
+                    <input type="text"
+                           name="name"
+                           placeholder="Digite o seu nome"
+                           onChange={handleName}
+                            value={name}/>
                 </div>
                 {/*Label envolvendo input*/}
                 <label>
@@ -32,7 +53,27 @@ const MyForm = () => {
                     <input type="email"
                            name="email"
                            placeholder="Digite o seu email"
-                           onChange={handleEmail}/>
+                           onChange={handleEmail}
+                           value ={email}/>
+                </label>
+                {/*Text area*/}
+                <label>
+                    <span>Bio:</span>
+                    <textarea name="bio"
+                              placeholder="Descrição do usuário"
+                              onChange={(e) => setBio(e.target.value)}
+                              value={bio}></textarea>
+                </label>
+                {/*Select*/}
+                <label>
+                    <span>Função no sistema</span>
+                    <select name="role"
+                            onChange={(e) => setRole(e.target.value)}
+                            value={role}>
+                        <option value="user">Usuário</option>
+                        <option value="editor">Editor</option>
+                        <option value="admin">Administrador</option>
+                    </select>
                 </label>
                 <input type="submit" value="Enviar"/>
             </form>
