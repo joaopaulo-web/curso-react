@@ -7,15 +7,17 @@ const Game = ({verifyLetter, pickedWord,pickedCategory,letters,guessedLetters,wr
     const [letter, setLetter] = useState("")
     const letterInputRef = useRef(null)
     // @ts-ignore
+    //Trata as informações que chegam do form input do jogo.
     const handleSubmit = (e) => {
+        //não permite que o formulário seja enviado sem estar preenchido.
         e.preventDefault()
+        //Trata a informação que chega do formulário.
         verifyLetter(letter)
         setLetter("")
 
         // @ts-ignore
         letterInputRef.current.focus()
     }
-    // @ts-ignore
     return (
         <div className="game">
             <p className="points">
