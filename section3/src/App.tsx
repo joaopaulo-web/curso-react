@@ -14,28 +14,33 @@ import ChangeMessage from "./components/ChangeMessage.tsx";
 import UserDetails from "./components/UserDetails.tsx";
 
 function App() {
-
+    // Constante userName iniciada usando uum state e passando o valor inicial de Maria
     const [userName] = useState("Maria")
 
+    // Constante iniciada como uma string com valore de ID, brand, color, newCar e KM
     const cars = [
         {id: 1, brand: "Ferrari", color: "Amarela", newCar: true, km: 0},
         {id: 2, brand: "KIA", color: "Branco", newCar: false, km: 123},
         {id: 3, brand: "Renault", color: "Azul", newCar: false, km: 1414}
     ]
 
+    //Constante iniciada como uma string de vários valores.
     const pessoas =[
         {nome: "Jorge", idade: 21, profissao: "Professor"},
         {nome: "Pedro", idade: 42, profissao: "Vendedor"},
         {nome: "Maria", idade: 35, profissao: "Médica"},
         {nome: "José", idade: 15, profissao: "Estudante"}
     ]
+
+    // Constante message iniciada fazendo uso do useState e do setState. A contante é iniciada como vazia.
     const [message, setMessage] = useState("")
 
-    // @ts-ignore
+    // @ts-ignore - Constante criada para lidar com a mensagem. Dentro dessa constante é executada a função setMessage. Que é a responsável por setar o novo valor no parâmetro msg.
     const handleMessage = (msg) => {
         setMessage (msg)
     }
 
+    // Função responsável por mostrar a mensagem. Dentro ela é executado um alerta.
     function showMessage(){
         alert ("Evento do componente pai")
     }
@@ -53,6 +58,7 @@ function App() {
         <CondicionalRender />
         <h4>Utilizando props </h4>
         <ShowUsername name={userName} />
+        {/*Prop userName sendo passado ao chamar o elemento no App*/}
         <hr/>
         <h4>Destructuring</h4>
         <CarDetails brand = "VW" km = {100000} color="Azul" newCar="false"/>
@@ -60,6 +66,7 @@ function App() {
         <h4>Reaproveitando dados</h4>
         <CarDetails brand = "Ford" km = {0} color="Preto" newCar="true" />
         <CarDetails brand = "Fiat" km = {4500} color="Branco" newCar="false"/>
+        {/*Prop userName sendo passado ao chamar o elemento no App*/}
         <hr/>
         <h4>Loop em array de objetos</h4>
         {cars.map((car) => (
