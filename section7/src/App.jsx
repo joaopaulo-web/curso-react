@@ -27,13 +27,17 @@ function App() {
 
     //Adição de produtos
     const handleSubmit = async (e) => {
+        //Impede que a página seja recarregada ao envio do formulário. Deixando assim a const lidar com o envio do formulário.
         e.preventDefault()
 
+        //O objeto principal chamado product é iniciado. Ele possui duas propriedades. Esses valores serão utilizados como parte do corpo da solicitação.
         const product = {
             name,
             price,
         }
 
+        //Este bloco faz uma solicitação HTTP utilizando a função fetch. Ela envia uma solicitação POST para o URL especificado na variável url.
+        //O await é usado para esperar que a solicitação seja concluída antes de prosseguir com a execução do código. Como a função handleSubmit é assíncrona, o uso de await permite que a função aguarde a conclusão da solicitação antes de continuar.
         const res = await fetch(url, {
             method: "POST",
             headers: {
@@ -51,6 +55,7 @@ function App() {
             {products.map((product) => (
                 <li key={product.id}>{product.name} - R$: {product.price}</li>
             ))}
+            {/*Parte do código responsável por mapear cada elemento da string e tornar uma nova string. Diferenciando cada nova string por um valor único (id). Cada novo valor vai ser disposto em uma concatenação de li com o valor do nome e do preço.*/}
         </ul>
         <div className="add-product">
             <form onSubmit={handleSubmit}>
