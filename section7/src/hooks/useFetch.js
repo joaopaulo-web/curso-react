@@ -2,8 +2,6 @@ import {useState, useEffect} from "react";
 
 //4 - Custom Hook
 
-
-
 export const useFetch = (url) => {
     const [data, setData] = useState(null)
     //5 - Refatorando post
