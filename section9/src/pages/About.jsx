@@ -11,7 +11,6 @@ const About = () => {
         <div>
             <h1>About</h1>
             <p>Valor do Contador: {counter}</p>
-
         </div>
     )
 }
