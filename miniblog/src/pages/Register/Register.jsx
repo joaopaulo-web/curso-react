@@ -1,6 +1,6 @@
-import { useAuthentication } from '../../hooks/useAuthentication'
 import styles from './Register.module.css'
 
+import { useAuthentication } from '../../hooks/useAuthentication'
 import { useState, useEffect } from 'react'
 
 
@@ -88,7 +88,12 @@ const Register = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)} />
           </label>
-          <button className="btn">Cadastrar</button>
+          {!loading && <button className="btn">Cadastrar</button>}
+          {loading && (
+            <button className="btn" disabled>
+              Aguarde...
+            </button>
+          )}
           {error && <p className='error'>{error}</p>}
         </form>
     </div>

@@ -31,6 +31,10 @@ body {
   nav button:hover {
     color: #bbb;
   }
+
+  p{
+    color: #000000;
+  }
   
   /* form styles */
   form {
