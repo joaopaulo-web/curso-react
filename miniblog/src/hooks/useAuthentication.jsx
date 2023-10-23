@@ -33,10 +33,9 @@ export const useAuthentication = () => {
     const createUser = async (data) => {
 
         checkIfIsCanceled()
-
-        setLoading(true)
-        
-        setError(null)
+        setCancelled(true);
+        setError(null);
+        setLoading(true);
 
 
         try {
