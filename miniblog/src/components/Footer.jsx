@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>João Paulo Dev &copy; 2023</p>
-      teste
       <div className={styles.redes_footer}>
        <p>
           <a href="https://www.linkedin.com/in/joao-paulo-web/"> <img src="src/assets/linkedin.svg" alt="Ícone Linkedin"/> Linkedin</a> 
