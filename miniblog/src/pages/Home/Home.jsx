@@ -3,18 +3,24 @@ import styles from './Home.module.css'
 //hooks
 import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
-import { FieldValue } from 'firebase/firestore/lite'
+import { FieldValue } from 'firebase/firestore'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 
 //components
-
+import PostDetail from '../../components/PostDetail'
 
 const Home = () => {
   const [query, setQuery] = useState('')
-  const {documents: posts, loading} = useFetchDocuments('posts')
+  const {documents: posts, loading} = useFetchDocuments("posts")
   
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if(query) {
+      return navigate(`/search?q=${query}`)
+    }
   }
   return (
     <div className={styles.home}>
@@ -25,11 +31,11 @@ const Home = () => {
         </form>
         <div>
           {loading && <p>Carregando...</p>}
-          {posts && posts.map((post) =><h3>{post.document.title}</h3>)}
+          {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
           {posts && posts.length === 0 &&(
             <div className={styles.noposts}>
               <p>Não foram encontrados posts</p>
-              <Link to="/posts/create" className="btn" >Criar primeiro post</Link>
+              <Link to="/posts/create" className="btn">Criar primeiro post</Link>
             </div>
           )}
         </div>
