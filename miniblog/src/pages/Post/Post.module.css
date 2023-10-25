@@ -11,6 +11,10 @@
   justify-content: center;
 }
 
+.post_container img {
+  max-width: 600px;
+}
+
 .tags p {
   margin-right: 1em;
 }

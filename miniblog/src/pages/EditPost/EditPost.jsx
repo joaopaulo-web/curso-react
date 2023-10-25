@@ -25,7 +25,7 @@ const EditPost = () => {
       setImage(post.image);
       setBody(post.body);
 
-      const textTags = post.tags.join(", ");
+      const textTags = post.tagsArray.join(", ");
 
       setTags(textTags);
     }
