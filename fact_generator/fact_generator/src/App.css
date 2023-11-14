@@ -1,0 +1,19 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.fact_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show_facts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  height: 60vh;
+  width: 80vw;
+}
